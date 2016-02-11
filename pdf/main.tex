@@ -1,0 +1,652 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Attention, la compilation sera faite dans un dossier du dossier courant.
+% Ainsi pour accéder à un fichier via une adresse relative, il faut rajouter "../" devant
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{comment}
+%\usepackage[toc.page]{appendix}
+\usepackage{pdfpages}
+ 
+\title{Batterie}
+\author{Gurvan Cabon}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\section*{Introduction}
+Ce document n'a pas pour ambition d'être un cours de batterie, ni un guide pour devenir batteur.
+Il n'est en aucun cas exhaustif ni pédagogique. Il s'agit d'un recueil des choses que j'ai apprises en batterie, quasi-intégralement enseignées par Margaux Scherer, mon professeur de batterie au \emph{Creativ' Drum Center}.
+
+La première partie définit les notations (très classiques) utilisées. La deuxième partie donne des détails sur des points techniques plus ou moins élémentaires et quelques exercices pour les travailler. La troisième partie fournit un certain nombre d'exercices pour améliorer ses compétences en général. Enfin les trois dernières parties offrent respectivement un répertoire de rythmes, de breaks quelconques et de morceaux.
+
+
+
+
+\begin{comment}
+tempalte de base personnalisé:
+
+
+\begin{lilypond}
+
+#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			3)
+         (lowmidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowtom		default			#f			0)
+         (bassdrum		default   		#f          -3)))
+
+
+	\drums{
+		\time 4/4
+		\set Timing.beamExceptions = #'()
+		\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+		<<
+			{}
+			\\
+			{}
+		>>
+		 
+	}
+\end{lilypond}
+
+
+
+\end{comment}
+
+
+\newpage
+\section{Notation}
+
+Voici, dans l'ordre, les positions des instruments sur les partitions:
+
+crash, charleston (fermé/ouverte), tom medium aigu, caisse claire, tom medium grave, tom basse, grosse caisse, pédale de charleston.
+
+
+		%(nom			visueldelanote	message		ligne)
+
+\begin{center}
+\begin{lilypond}
+
+#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+	\drums{
+		\time 4/4
+		\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+		<<
+			{cymc4 hh hho }
+			\\
+			{s4 s s tommh sn tomml toml bd hhp}
+		>>
+		 
+	}
+\end{lilypond}
+\end{center}
+
+
+\section{Points techniques}
+
+    \subsection{Doigtés}
+    
+		\subsubsection*{Frisé}
+		
+			\begin{lilypond}
+			\drums{ \time 2/4 \stemUp \repeat unfold 2 {sn16_"R" sn_"L" sn_"R" sn_"L"}}
+			\end{lilypond}
+		
+		\subsubsection*{Roulé}
+		
+			\begin{lilypond}
+			\drums{ \time 2/4 \stemUp \repeat unfold 2 {sn16_"R" sn_"R" sn_"L" sn_"L"}}
+			\end{lilypond}
+		
+		
+		\subsubsection*{Moulin (paradiddle)}
+		
+			\begin{lilypond}
+			\drums{ \time 2/4 \stemUp {sn16_"R" sn_"L" sn_"R" sn_"R"  sn_"L" sn_"R" sn_"L" sn_"L"}}
+			\end{lilypond}
+			
+	
+	
+    
+    \subsection{Fla}
+    
+    \subsection{Ra (écriture?)}
+    
+    \subsection{Ouverture charley}
+
+	\subsection{Sextolets}
+	Les sextolets permettent de pimenter un rythme un en plaçant aux 3ème et/ou 4ème temps ou de faire des breaks.
+	
+	
+	\subsection{Paradiddle-diddle}
+	
+			\begin{lilypond}
+			
+			#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+				\drums{
+					\time 4/4
+					\set Timing.beamExceptions = #'()
+					\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+			
+					 <<
+						{ \repeat unfold 2 {sn16^"R" sn^"L" sn^"R" sn^"R" sn^"L" sn^"L"}
+						   sn^"R"  sn^"L"  sn^"R"  sn^"R"}
+						\\
+						{ hhp4 hhp hhp hhp}
+					  >>
+					 <<
+						{ \repeat unfold 2 {sn16^"L" sn^"R" sn^"L" sn^"L" sn^"R" sn^"R"}
+						   sn^"L"  sn^"R"  sn^"L"  sn^"L"}
+						\\
+						{ hhp4 hhp hhp hhp}
+					  >>
+					}
+			\end{lilypond}
+	
+\section{Entraînement}
+
+    \subsection{Stick Control}
+    
+    	Le Stick Control se trouve dans le dossier \emph{exercices}. 
+    	
+    	Les pages 5,6 et 7 peuvent se travailler avec le pied samba:
+    	
+    	\begin{lilypond}
+
+			#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+				\drums{
+					\time 2/4
+					\set Timing.beamExceptions = #'()
+					\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+					<<
+						\repeat unfold 2 {bd8 hhp16 bd}
+					>>
+					 
+				}
+			\end{lilypond}
+    
+    \subsection{Coordination}
+
+		\subsubsection{Exo 1}
+			\begin{lilypond}
+			
+			#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+				\drums{
+					\time 4/4
+					\set Timing.beamExceptions = #'()
+					\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+			
+					 <<
+						{\repeat unfold 4 {hh4 hh hh hh}}
+						\\
+						{\repeat unfold 3 {	sn16 sn sn sn 
+											sn16 sn sn sn 
+											sn16 bd sn bd 
+											sn16 bd sn bd}
+					  	 \repeat unfold 4 {sn16 bd sn bd} }
+					  >>
+					}
+			\end{lilypond}
+
+		
+	\subsection{Débit}
+	
+	\subsection{Lecture}
+	Pour travailler la lecture, s'entrainer sur les fichiers du dossier \emph{exercices/lecture}. 
+	\begin{enumerate}
+	\item En marquant les notes avec la caisse claire
+	\item En marquant les notes aves la grosse caisse accompagné du rythme:
+
+			\begin{lilypond}
+
+			#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+				\drums{
+					\time 4/4
+					\set Timing.beamExceptions = #'()
+					\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+					<<
+						{hh8 hh hh hh hh hh hh hh}
+						\\
+						{s4     sn    s     sn}
+					>>
+					 
+				}
+			\end{lilypond}
+	
+	\end{enumerate}
+	
+	
+	
+\section{Rythmes}
+
+	\begin{lilypond}
+	#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+		\drums{
+			\time 4/4
+			\set Timing.beamExceptions = #'()
+			\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+
+                        \repeat unfold 2 {
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn    bd    sn }
+			>>}
+                        \repeat unfold 2 {
+			<<
+				{ hh8 hh hh  hh       hh hh hh hh}
+				\\
+				{ bd4    sn8 s16 sn16 s8   bd8 sn4}
+			>>}
+	
+		}
+	
+	\end{lilypond}
+
+\section{Breaks}		
+    
+    \subsection{Groupe de notes}
+
+    
+
+\newpage
+\section{Morceaux}
+    
+    \subsection{Queen - Bohemian rhapsody}
+    
+    \newpage
+    \subsection{System of a Down - Lonely day}
+    
+    \newpage
+    \subsection{Passenger - Let her go}
+    
+    
+	\begin{lilypond}
+	#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+		\drums{
+			\time 4/4
+			\set Timing.beamExceptions = #'()
+			\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ \repeat unfold 2 {hh8 hh hh hh hh hh hh hh}}
+				\\
+				{ \repeat unfold 2 {bd4    sn8 bd8   bd4    sn }}
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hho hho \break}
+				\\
+				{ bd4    sn    bd16 sn bd8    sn4 }
+			>>
+			<<
+				{ \repeat unfold 3 {hh8 hh hh hh hh hh hh hh}}
+				\\
+				{ \repeat unfold 3 {bd4    sn8 bd8   bd4    sn }}
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh \break}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ \repeat unfold 3 {hh8 hh hh hh hh hh hh hh}}
+				\\
+				{ \repeat unfold 3 {bd4    sn8 bd8   bd4    sn }}
+			>>
+			<<
+				{ hh8 hho hh hh hh hh s s \break}
+				\\
+				{ bd4    sn   bd8 bd sn16 tomml16 toml8 }
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh }
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hho hh hho \break}
+				\\
+				{ bd4    sn4   bd16 sn16 bd8 sn4}
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh }
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hho hh\break}
+				\\
+				{ bd4    sn   bd8 bd sn8 sn16 sn16}
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh }
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hho\break}
+				\\
+				{ bd4    sn   bd8 bd sn4 }
+			>>
+			<<
+				{ \repeat unfold 3 {hh8 hh hh hh hh hh hh hh}}
+				\\
+				{ \repeat unfold 3 {bd4    sn8 bd8   bd4    sn }}
+			>>
+			<<
+				{ hh8 hh hh hh hh hho s s \break}
+				\\
+				{ bd4    sn   bd8 bd sn16 tomml16 toml8 }
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh }
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh \break}
+				\\
+				{ bd4    sn8 bd8 bd16 sn16 bd8 sn8 sn16 sn16}
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hho }
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh s s \break}
+				\\
+				{ bd4    sn   bd8 bd sn16 tomml16 toml8 }
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ \repeat unfold 2 {hh8 hh hh hh hh hh hh hh}}
+				\\
+				{ \repeat unfold 2 {bd4    sn   bd    sn }}
+			>>
+			<<
+				{ hh8 hh hh hh hh hh s s \break}
+				\\
+				{ bd4    sn   bd  sn16 tomml16 toml8 }
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh s s \break}
+				\\
+				{ bd4    sn   bd  sn16 tomml16 toml8 }
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hho hh \break}
+				\\
+				{ bd4    sn   bd8 bd8 sn8 sn16 sn16}
+			>>
+			<<
+				{ cymc8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn8 bd8   bd4    sn }
+			>>
+			<<
+				{ hh8 hh hh hh hh hh hh hh}
+				\\
+				{ bd4    sn   bd    sn }
+			>>
+			<<
+				{ hh8 hh hh hh s s s s \break}
+				\\
+				{ bd4    sn   bd8 toml8 r8 toml8    }
+			>>
+	
+		}
+	
+	\end{lilypond}
+
+	\newpage
+	\subsection{The who - Baba O'riley}
+    
+    
+	\begin{lilypond}
+
+	#(define mydrums '(
+         (crashcymbal	cross			#f			6)
+         (hihat			cross			#f			5)
+         (openhihat		xcircle			#f			5)
+         (himidtom		default			#f			2)
+         (snare			default			#f			1)
+         (lowmidtom		default			#f			0)
+         (lowtom		default			#f			-1)
+         (bassdrum		default   		#f          -3)
+         (pedalhihat	cross			#f			-5)))
+
+
+		\drums{
+			\time 4/4
+			\set Timing.beamExceptions = #'()
+			\set DrumStaff.drumStyleTable = #(alist->hash-table mydrums)
+			<<
+				{s4^"Break" s s s}
+				{r4 toml8. sn16 toml8 toml16 toml16 toml16 toml16 toml8  }
+			>>
+			<<
+				{cymc4 hh        hh     cymc cymc hh hh     hh}
+				\\
+				{bd4   sn8. sn16 bd8 bd sn4  bd4  sn bd8 bd sn4}
+			>>
+			<<
+				\repeat unfold 3 {cymc4 hh hh     cymc cymc hh hh     hh}
+				\\
+				\repeat unfold 3 {bd4   sn bd8 bd sn4  bd4  sn bd8 bd sn4}
+			>>
+			<<
+				{cymc4^"chant" hh hh     hh}
+				\\
+				{bd4   sn8. sn16 bd8 bd sn bd}
+			>>
+			<<
+				{hh4 hh hh     hh}
+				\\
+				{bd4   sn bd8 bd sn4}
+			>>
+			<<
+				{cymc4 hh hh     hh}
+				\\
+				{bd4   sn bd8 bd sn bd}
+			>>
+			<<
+				{cymc4 hh hh     hh}
+				\\
+				{bd4   sn bd8 bd sn bd}
+			>>
+			<<
+				\repeat volta 6 {cymc4^"6 fois" hh hh     hh}
+				\\
+				\repeat volta 6 {bd4   sn8. sn16 bd8 bd sn bd}
+			>>
+			 
+		}
+	\end{lilypond}
+    
+   
+\end{document}
+
